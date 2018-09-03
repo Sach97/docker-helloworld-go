@@ -20,9 +20,9 @@ RUN go build -a -o app .
 #   FROM alpine:3.7
 #   RUN apk --no-cache add ca-certificates
 #
-# FROM scratch
-# WORKDIR /root/
-# COPY --from=builder /go/src/github.com/Sach97/docker-helloworld-go/app .
+FROM scratch
+WORKDIR /root/
+COPY --from=builder /go/src/github.com/Sach97/docker-helloworld-go/app .
 
-# #EXPOSE 8123
-# ENTRYPOINT ["./app"]
+#EXPOSE 8123
+ENTRYPOINT ["./app"]

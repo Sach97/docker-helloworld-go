@@ -17,19 +17,19 @@ const (
 )
 
 func main() {
-	// host := "localhost"
-	// port := "5432"
-	// user := os.GetEnv("POSTGRES_USER")
-	// password := os.GetEnv("POSTGRES_PASSWORD")
-	// dbname := os.GetEnv("POSTGRES_DB")
-	// sslmode := "disable"
-
 	host := "localhost"
-	port := 5432
-	user := "postgres-dev"
-	password := "s3cr3tp4ssw0rd"
-	dbname := "dev"
+	port := "5432"
+	user := os.GetEnv("POSTGRES_USER")
+	password := os.GetEnv("POSTGRES_PASSWORD")
+	dbname := os.GetEnv("POSTGRES_DB")
 	sslmode := "disable"
+
+	// host := "localhost"
+	// port := 5432
+	// user := "postgres-dev"
+	// password := "s3cr3tp4ssw0rd"
+	// dbname := "dev"
+	// sslmode := "disable"
 
 	t := "host=%s port=%d user=%s password=%s dbname=%s sslmode=%s"
 

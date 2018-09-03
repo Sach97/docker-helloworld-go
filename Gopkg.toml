@@ -26,8 +26,8 @@
 
 
 [[constraint]]
-  branch = "master"
-  name = "github.com/jmoiron/sqlx"
+  name = "github.com/lib/pq"
+  version = "1.0.0"
 
 [prune]
   go-tests = true
