@@ -1,20 +1,26 @@
 version: '3'
 services:
 
-  db:
-    image: postgres
+  api:
+    build:
+      context: ./api
+    volumes:
+      - ./api:/go/src/github.com/user/Sach97/api
+    links:
+      - postgres
+    networks:
+      - api-network
+  postgres:
+    build : ./postgres
+    volumes:
+      - ./postgres/pgdata:/pgdata
     environment:
       POSTGRES_DB: dev
       POSTGRES_USER: postgres-dev
       POSTGRES_PASSWORD: s3cr3tp4ssw0rd
+      PGDATA: /pgdata
     ports:
       - 5432:5432
-  app:
-    build: .
-    #command: ./app
-    volumes:
-      - .:/go/src/github.com/Sach97/docker-helloworld-go/
-    depends_on:
-      - db
-    links:
-      - db
+
+networks:
+  api-network:
